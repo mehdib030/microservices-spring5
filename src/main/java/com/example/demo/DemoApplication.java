@@ -10,13 +10,8 @@ import java.util.Arrays;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-
 		ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
 		String[] beanNames = ctx.getBeanDefinitionNames();
-		Arrays.sort(beanNames);
-		for(String beanName:beanNames){
-			System.out.println(beanName);
-		}
-
+		Arrays.stream(beanNames).sorted().forEach(e -> System.out.println(e));
 	}
 }
